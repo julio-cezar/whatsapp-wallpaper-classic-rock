@@ -3,5 +3,7 @@
 
     <string name="app_name">Classic Rock Wallpapers</string>
     <string name="hello_world">Escolha a banda</string>
+    <string name="title_activity_wallpaper">Wallpaper</string>
+    <string name="title_activity_splash">Splash</string>
 
 </resources>
