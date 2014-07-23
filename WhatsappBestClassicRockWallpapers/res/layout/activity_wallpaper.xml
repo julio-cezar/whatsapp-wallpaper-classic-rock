@@ -1,0 +1,25 @@
+<?xml version ="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Wallpaper" >
+
+	<ImageView android:src="@drawable/back_acdc_1"  android:id="@+id/IVDisplay" android:layout_height="200dp" android:layout_width="200dp" android:layout_gravity="center"/>
+	
+	<Button android:id="@+id/BsetWallpaper" android:text="set image to background" android:layout_width="fill_parent" android:layout_height="wrap_content"/>
+	
+<HorizontalScrollView android:layout_width="200dp" android:layout_height="wrap_content" android:layout_gravity="center">
+	<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+	<ImageView android:src="@drawable/back_acdc_1"  android:id="@+id/IVimage1" android:layout_height="125dp" android:layout_width="125dp" android:padding="15dp"/>
+	<ImageView android:src="@drawable/back_acdc_2"  android:id="@+id/IVimage2" android:layout_height="125dp" android:layout_width="125dp" android:padding="15dp"/>
+	<ImageView android:src="@drawable/back_beatles_1"  android:id="@+id/IVimage3" android:layout_height="125dp" android:layout_width="125dp" android:padding="15dp"/>
+	<ImageView android:src="@drawable/back_bonjovi_1"  android:id="@+id/IVimage4" android:layout_height="125dp" android:layout_width="125dp" android:padding="15dp"/>
+	<ImageView android:src="@drawable/back_gunsnroses_1"  android:id="@+id/IVimage5" android:layout_height="125dp" android:layout_width="125dp" android:padding="15dp"/>
+	<ImageView android:src="@drawable/back_kiss_1"  android:id="@+id/IVimage6" android:layout_height="125dp" android:layout_width="125dp" android:padding="15dp"/>
+	<ImageView android:src="@drawable/back_lad_zepplin_2"  android:id="@+id/IVimage7" android:layout_height="125dp" android:layout_width="125dp" android:padding="15dp"/>
+	</LinearLayout>
+</HorizontalScrollView>	
+</LinearLayout>

@@ -7,6 +7,8 @@
     <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="19" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -14,13 +16,21 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.maracujas.whatsappbestclassicrockwallpapers.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Wallpaper"
+            android:label="@string/title_activity_wallpaper" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Splash"
+            android:label="@string/title_activity_splash" >
         </activity>
     </application>
 
