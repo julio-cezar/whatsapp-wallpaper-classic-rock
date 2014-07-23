@@ -5,5 +5,7 @@
     <string name="hello_world">Escolha a banda</string>
     <string name="title_activity_wallpaper">Wallpaper</string>
     <string name="title_activity_splash">Splash</string>
+    <string name="definir">Definir</string>
+    <string name="previw">previw</string>
 
 </resources>
