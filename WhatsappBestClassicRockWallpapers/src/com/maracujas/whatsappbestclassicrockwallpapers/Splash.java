@@ -26,7 +26,7 @@ public class Splash extends Activity {
         public void run() {
 
             // start new activity
-            startActivity(new Intent(getApplication(), MainActivity.class));
+            startActivity(new Intent(getApplication(), Main.class));
             // close out this activity
             finish();
 

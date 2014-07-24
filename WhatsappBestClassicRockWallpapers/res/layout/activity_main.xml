@@ -50,7 +50,7 @@
             <LinearLayout
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/theBeatlesIco1"
+                android:background="@drawable/the_beatles_ico1"
                 android:gravity="bottom|center"
                  >
 
@@ -68,11 +68,11 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="35dp"
-                android:background="@drawable/AcdcIco"
+                android:background="@drawable/acdc_ico"
                 android:gravity="bottom|center" >
             
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ACDC"
@@ -98,7 +98,7 @@
             
                 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rolling Stone"
@@ -116,7 +116,7 @@
            
                 
                 <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Led Zeppelin"
