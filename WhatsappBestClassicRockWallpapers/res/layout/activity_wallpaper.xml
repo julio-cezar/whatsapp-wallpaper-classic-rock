@@ -79,7 +79,7 @@
         android:layout_above="@+id/HorizontalScrollView1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/imageButton1"
         android:src="@drawable/back_acdc_1" />
 
     <LinearLayout
@@ -103,7 +103,38 @@
             android:text="@string/definir" />
 
     </LinearLayout>
-    
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/bt_compartilhar"
+        android:background="#626465" />
+
+    <ImageButton
+        android:id="@+id/ImageButton01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/IVDisplay"
+        android:layout_toLeftOf="@+id/imageButton1"
+        android:background="#626465"
+        android:src="@drawable/ic_salvar" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ImageButton01"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/ImageButton01"
+        android:text="ACDC"
+        android:textSize="35sp"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp" />
     
 		android:layout_below="@+id/IVDisplay"
 	    android:layout_marginTop="58dp"
