@@ -79,7 +79,7 @@
         android:layout_above="@+id/HorizontalScrollView1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/imageButton1"
+        android:layout_below="@+id/IBShare"
         android:src="@drawable/back_acdc_1" />
 
     <LinearLayout
@@ -94,7 +94,7 @@
             android:id="@+id/button1"
             android:layout_width="161dp"
             android:layout_height="wrap_content"
-            android:text="@string/previw" />
+            android:text="@string/preview" />
         
         <Button
             android:id="@+id/BsetWallpaper"
@@ -105,7 +105,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/IBShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -114,11 +114,11 @@
         android:background="#626465" />
 
     <ImageButton
-        android:id="@+id/ImageButton01"
+        android:id="@+id/IBSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/IVDisplay"
-        android:layout_toLeftOf="@+id/imageButton1"
+        android:layout_toLeftOf="@+id/IBShare"
         android:background="#626465"
         android:src="@drawable/ic_salvar" />
 
@@ -126,10 +126,10 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ImageButton01"
+        android:layout_alignBottom="@+id/IBSave"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/ImageButton01"
+        android:layout_toLeftOf="@+id/IBSave"
         android:text="ACDC"
         android:textSize="35sp"
         android:textColor="#ffffff"
