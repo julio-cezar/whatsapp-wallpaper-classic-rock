@@ -6,6 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -38,9 +41,9 @@ public class Wallpaper extends Activity implements OnClickListener{
 		
 		setContentView(R.layout.activity_wallpaper);
 		
-		toPhone = R.drawable.back_acdc_1;
 		
 		display  = (ImageView) findViewById(R.id.IVDisplay);
+		toPhone = R.drawable.back_acdc_1;
 		uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_1");
 		ImageView image1 = (ImageView) findViewById(R.id.IVimage1);
 		ImageView image2 = (ImageView) findViewById(R.id.IVimage2);
@@ -127,12 +130,11 @@ public class Wallpaper extends Activity implements OnClickListener{
 	}
 	public void shareImage() {
 		
-		//uri = Uri.parse("file://sdcard/Asapato.jpg");
-	
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("image/jpg");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "Best Classic Rock Wallpapers");
-        shareIntent.putExtra(Intent.EXTRA_TITLE, "SHARE");
+        shareIntent.setType("image/jpeg");
+      //shareIntent.setType( "text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "Best Classic Rock Wallpapers!");
+     //   shareIntent.putExtra(Intent.EXTRA_TITLE, "SHARE");
         shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
         startActivity(Intent.createChooser(shareIntent, "Share image using"));
 	}
@@ -151,9 +153,12 @@ public class Wallpaper extends Activity implements OnClickListener{
 
         }
 
-        Bitmap bm = BitmapFactory.decodeResource( getResources(), R.drawable.back_acdc_1);
+        Bitmap bm = BitmapFactory.decodeResource( getResources(), toPhone);
+        String strtoPhone = ""+toPhone;
+        String nameFile = strtoPhone+".jpeg";
         OutputStream outStream = null;
-           File savingFile = new File(commonPath, "back_acdc_1.jpeg");
+
+           File savingFile = new File(commonPath, nameFile);
            if(!savingFile.exists())
            {
                Log.d("tag","file is created");
@@ -166,8 +171,8 @@ public class Wallpaper extends Activity implements OnClickListener{
                 outStream.close();
 
                 Log.d("tag","Saved");
-				Toast.makeText(getApplicationContext(), "Image Saved Succesfully!", Toast.LENGTH_LONG).show();
-
+				Toast.makeText(getApplicationContext(),"Image Saved Succesfully!", Toast.LENGTH_LONG).show();
+				
                } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -179,6 +184,10 @@ public class Wallpaper extends Activity implements OnClickListener{
                }
 
             }
+           else {
+        	   Toast.makeText(getApplicationContext(), "Image already Saved!", Toast.LENGTH_LONG).show();
+
+           }
 	}
 }
 

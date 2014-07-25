@@ -2,10 +2,10 @@
 <resources>
 
     <string name="app_name">Classic Rock Wallpapers</string>
-    <string name="hello_world">Escolha a banda</string>
+    <string name="hello_world">Choose a band</string>
     <string name="title_activity_wallpaper">Wallpaper</string>
     <string name="title_activity_splash">Splash</string>
-    <string name="definir">Definir</string>
-    <string name="preview">preview</string>
+    <string name="definir">Set wallpaper</string>
+    <string name="preview">Preview</string>
 
 </resources>
