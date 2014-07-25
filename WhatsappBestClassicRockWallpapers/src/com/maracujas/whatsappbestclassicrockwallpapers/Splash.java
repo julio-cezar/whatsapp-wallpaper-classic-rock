@@ -18,7 +18,7 @@ public class Splash extends Activity {
 
         // setup handler to close the splash screen
         Handler x = new Handler();
-        x.postDelayed(new splashhandler(), 3000);
+        x.postDelayed(new splashhandler(), 2000);
     }
 
     class splashhandler implements Runnable {
