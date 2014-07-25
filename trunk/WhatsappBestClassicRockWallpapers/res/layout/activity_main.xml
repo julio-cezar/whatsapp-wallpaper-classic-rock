@@ -136,19 +136,38 @@
             android:layout_marginTop="30dp"
             android:layout_weight="2.09"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+             >
 
             <LinearLayout
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/seletor_bandas" >
+                android:background="@drawable/eagle_ico"
+                android:gravity="bottom|center" >
+            
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eagles"
+                android:textColor="#FFFFFF"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+                
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="35dp"
-                android:background="@drawable/seletor_bandas" >
+                android:background="@drawable/the_who_ico"
+                android:gravity="bottom|center" >
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The Who"
+                android:textColor="#FFFFFF"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
