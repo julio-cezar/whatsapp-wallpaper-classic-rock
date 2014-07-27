@@ -110,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/bt_compartilhar"
+        android:src="@drawable/seletor_bt_compartilhar"
         android:background="#626465" />
 
     <ImageButton
@@ -120,7 +120,7 @@
         android:layout_above="@+id/IVDisplay"
         android:layout_toLeftOf="@+id/IBShare"
         android:background="#626465"
-        android:src="@drawable/ic_salvar" />
+        android:src="@drawable/seletor_bt_salvar" />
 
     <TextView
         android:id="@+id/textView1"
@@ -129,12 +129,22 @@
         android:layout_alignBottom="@+id/IBSave"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/IBSave"
-        android:text="ACDC"
-        android:textSize="35sp"
-        android:textColor="#ffffff"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@+id/imageButton1"
+        android:text="ACDC"
+        android:textColor="#ffffff"
+        android:textSize="35sp" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/IVDisplay"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/IBSave"
+        android:background="#626465"
+        android:src="@drawable/seletor_bt_som" />
     
 		android:layout_below="@+id/IVDisplay"
 	    android:layout_marginTop="58dp"
