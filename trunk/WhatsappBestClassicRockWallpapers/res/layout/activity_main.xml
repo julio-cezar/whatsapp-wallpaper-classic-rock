@@ -45,97 +45,86 @@
         <LinearLayout
             style="@style/style_layout" >
 
-            <LinearLayout
+            <Button
+                android:id="@+id/bt_the_beatles"
+                android:text="The Beatles"
                 style="@style/style_botoes"
                 android:background="@drawable/seletor_the_beatles"
-                 >
+                
+                 />
 
-                <TextView
-                    android:id="@+id/textView2"
-                    style="@style/style_text"
-                    android:text="The Beatles"
-                     />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/bt_acdc"
+                android:text="ACDC"
                 style="@style/style_botoes"
                 android:layout_marginLeft="35dp"
                 android:background="@drawable/seletor_bt_acdc"
-                >
-            
-            <TextView
-                android:id="@+id/textView3"
-                style="@style/style_text"
-                android:text="ACDC"
-                />    
-                 
-            </LinearLayout>
+                />
+                        
         </LinearLayout>
 
         <LinearLayout
             style="@style/style_layout"
             android:layout_marginTop="30dp" >
 
-            <LinearLayout
+            <Button
+                android:id="@+id/bt_rolling_stone"
+                android:text="Rolling Stone"
                 style="@style/style_botoes"
                 android:background="@drawable/seletor_bt_rolling_stone"
-                 >
-            
-                
-            <TextView
-                android:id="@+id/textView4"
-                style="@style/style_text"
-                android:text="Rolling Stone"
                  />
-                               
-            </LinearLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/bt_the_led_zeppelin"
+                android:text="Led Zeppelin"
                 style="@style/style_botoes"
                 android:layout_marginLeft="35dp"
                 android:background="@drawable/seletor_bt_led_zeppelin"
-                 >
-           
-                
-                <TextView
-                android:id="@+id/textView5"
-                style="@style/style_text"
-                android:text="Led Zeppelin"
                  />
-            </LinearLayout>
         </LinearLayout>
         
         <LinearLayout
             style="@style/style_layout"
             android:layout_marginTop="30dp">
 
-            <LinearLayout
+            <Button
+                android:id="@+id/bt_eagles"
+                android:text="Eagles"
                 style="@style/style_botoes"
                 android:background="@drawable/seletor_bt_eagles"
-                 >
-            
-            <TextView
-                android:id="@+id/textView6"
-                style="@style/style_text"
-                android:text="Eagles"
-                />
-                
-            </LinearLayout>
+                 />
 
-            <LinearLayout
+            <Button
+                android:id="@+id/bt_the_who"
+                android:text="The Who"
                 style="@style/style_botoes"
                 android:layout_marginLeft="35dp"
                 android:background="@drawable/seletor_bt_the_who"
-                >
-            <TextView
-                android:id="@+id/textView7"
-                style="@style/style_text"
-                android:text="The Who"
-                 />
-            </LinearLayout>
+                />
         </LinearLayout>
-    </LinearLayout>
+            
+        <LinearLayout
+            style="@style/style_layout"
+            android:layout_marginTop="30dp">
+
+            <Button
+                android:id="@+id/bt_eagles"
+                android:text="Eagles"
+                style="@style/style_botoes"
+                android:background="@drawable/seletor_bt_eagles"
+                 />
+
+            <Button
+                android:id="@+id/bt_the_who"
+                android:text="The Who"
+                style="@style/style_botoes"
+                android:layout_marginLeft="35dp"
+                android:background="@drawable/seletor_bt_the_who"
+                />
+        </LinearLayout>
+        
+        
+        </LinearLayout>
+    
     
     </ScrollView>
 
