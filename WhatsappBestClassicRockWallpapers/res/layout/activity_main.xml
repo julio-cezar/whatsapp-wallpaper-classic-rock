@@ -107,14 +107,14 @@
             android:layout_marginTop="30dp">
 
             <Button
-                android:id="@+id/bt_eagles"
+                android:id="@+id/bt_eagles1"
                 android:text="Eagles"
                 style="@style/style_botoes"
                 android:background="@drawable/seletor_bt_eagles"
                  />
 
             <Button
-                android:id="@+id/bt_the_who"
+                android:id="@+id/bt_the_who1"
                 android:text="The Who"
                 style="@style/style_botoes"
                 android:layout_marginLeft="35dp"
