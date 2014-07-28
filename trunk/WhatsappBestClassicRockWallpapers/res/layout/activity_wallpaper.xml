@@ -56,19 +56,19 @@
                 android:padding="5dp"
                 android:src="@drawable/back_gunsnroses_1" />
 
-            <ImageView
+          <!--  <ImageView
                 android:id="@+id/IVimage6"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:padding="5dp"
-                android:src="@drawable/back_kiss_1" />
+                android:src="@drawable/back_kiss_1" />-->
 
-            <ImageView
+           <!--  <ImageView
                 android:id="@+id/IVimage7"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:padding="5dp"
-                android:src="@drawable/back_lad_zepplin_2" />
+                android:src="@drawable/back_lad_zepplin_2" />--> 
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -131,13 +131,13 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
-        android:layout_toLeftOf="@+id/imageButton1"
+        android:layout_toLeftOf="@+id/IBSound"
         android:text="ACDC"
         android:textColor="#ffffff"
         android:textSize="35sp" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/IBSound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/IVDisplay"
