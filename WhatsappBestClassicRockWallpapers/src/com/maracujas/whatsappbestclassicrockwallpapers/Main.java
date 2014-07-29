@@ -51,11 +51,11 @@ public class Main extends Activity implements OnClickListener{
 			this.startActivity(i);
 			break;
 		case R.id.bt_acdc:
-			i.putExtra("banda", "acdc");
+			//i.putExtra("banda", "acdc");
 			this.startActivity(i);
 			break;
 		case R.id.bt_the_led_zeppelin:
-			i.putExtra("banda", "ledzeppelin");
+			//i.putExtra("banda", "ledzeppelin");
 			this.startActivity(i);
 			break;
 		case R.id.bt_the_who:

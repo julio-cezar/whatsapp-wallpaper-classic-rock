@@ -25,50 +25,32 @@
                 android:id="@+id/IVimage1"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:padding="5dp"
-                android:src="@drawable/back_acdc_1" />
+                android:padding="5dp"/>
 
             <ImageView
                 android:id="@+id/IVimage2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:padding="5dp"
-                android:src="@drawable/back_acdc_2" />
+                android:padding="5dp"/>
 
             <ImageView
                 android:id="@+id/IVimage3"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:padding="5dp"
-                android:src="@drawable/back_beatles_1" />
+                android:padding="5dp" />
 
             <ImageView
                 android:id="@+id/IVimage4"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:padding="5dp"
-                android:src="@drawable/back_bonjovi_1" />
+                android:padding="5dp" />
 
             <ImageView
                 android:id="@+id/IVimage5"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:padding="5dp"
-                android:src="@drawable/back_gunsnroses_1" />
+                android:padding="5dp" />
 
-          <!--  <ImageView
-                android:id="@+id/IVimage6"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:padding="5dp"
-                android:src="@drawable/back_kiss_1" />-->
-
-           <!--  <ImageView
-                android:id="@+id/IVimage7"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:padding="5dp"
-                android:src="@drawable/back_lad_zepplin_2" />--> 
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -79,8 +61,7 @@
         android:layout_above="@+id/HorizontalScrollView1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/IBShare"
-        android:src="@drawable/back_acdc_1" />
+        android:layout_below="@+id/IBShare" />
 
     <LinearLayout
         android:id="@+id/laioutBotoes"
@@ -146,7 +127,6 @@
         android:background="#626465"
         android:src="@drawable/seletor_bt_som" />
     
-		android:layout_below="@+id/IVDisplay"
-	    android:layout_marginTop="58dp"
+
 
 </RelativeLayout>
