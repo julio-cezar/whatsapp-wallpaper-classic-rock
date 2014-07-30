@@ -1,17 +1,27 @@
 package com.maracujas.whatsappbestclassicrockwallpapers;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Vibrator;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -19,6 +29,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class Wallpaper extends Activity implements OnClickListener{
 	ImageView display;
@@ -34,7 +45,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 		setContentView(R.layout.activity_wallpaper);
 		
 		
-		/*
+		
 		Bundle extras = getIntent().getExtras(); 
 		String banda="nada";
 
@@ -42,7 +53,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 			banda = extras.getString("banda");
 		    // and get whatever type user account id is
 		}
-			*/	
+				
 		
 		display  = (ImageView) findViewById(R.id.IVDisplay);
 		toPhone = R.drawable.back_acdc_1;
@@ -57,8 +68,19 @@ public class Wallpaper extends Activity implements OnClickListener{
 		ImageButton ibsave = (ImageButton) findViewById(R.id.IBShare);
 		ImageButton ibsound = (ImageButton) findViewById(R.id.IBSound);
 		
-		//image1.setImageResource(R.drawable.back_eagle_1);
+		//testes de set Image
+		//Bitmap bMap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+		//image1.setImageBitmap(bMap);
 		
+		switch(banda){
+		case "beatles":
+		image1.setImageResource(R.drawable.back_beatles_1);
+		image2.setImageResource(R.drawable.back_beatles_2);
+		image3.setImageResource(R.drawable.back_beatles_1);
+		image4.setImageResource(R.drawable.back_beatles_4);
+		image5.setImageResource(R.drawable.back_beatles_4);
+		break ;
+		}
 		/*switch(banda){
 		case "nada":
 	     	   Toast.makeText(getApplicationContext(), "Image nada!", Toast.LENGTH_LONG).show();
@@ -111,27 +133,27 @@ public class Wallpaper extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch(v.getId()){
 		case R.id.IVimage1:
-			display.setImageResource(R.drawable.back_acdc_1);
-			toPhone = R.drawable.back_acdc_1;
+			display.setImageResource(R.drawable.back_beatles_1);
+			toPhone = R.drawable.back_beatles_4;
 	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_1");
 			break;
 		case R.id.IVimage2:
-			display.setImageResource(R.drawable.back_acdc_2);
-			toPhone = R.drawable.back_acdc_2;
+			display.setImageResource(R.drawable.back_beatles_1);
+			toPhone = R.drawable.back_beatles_4;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_2");
 			break;
 		case R.id.IVimage3:
-			display.setImageResource(R.drawable.back_eagle_1);
+			display.setImageResource(R.drawable.back_beatles_1);
 			toPhone = R.drawable.back_eagle_1;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_eagle_1");
 			break;
 		case R.id.IVimage4:
-			display.setImageResource(R.drawable.back_eagle_1);
+			display.setImageResource(R.drawable.back_beatles_1);
 			toPhone = R.drawable.back_eagle_1;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_bonjovi_1");
 			break;
 		case R.id.IVimage5:
-			display.setImageResource(R.drawable.back_eagle_1);
+			display.setImageResource(R.drawable.back_beatles_1);
 			toPhone = R.drawable.back_eagle_1;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_gunsnroses_1");
 			break;			
@@ -164,7 +186,7 @@ public class Wallpaper extends Activity implements OnClickListener{
         startActivity(Intent.createChooser(shareIntent, "Share image using"));
 	}
 	
-	/*public void saveImage(){
+	public void saveImage(){
 		String commonPath = Environment.getExternalStorageDirectory().toString() + "/ClassicRock"; 
         File direct = new File(commonPath);
 
@@ -213,7 +235,7 @@ public class Wallpaper extends Activity implements OnClickListener{
         	   Toast.makeText(getApplicationContext(), "Image already Saved!", Toast.LENGTH_LONG).show();
 
            }
-	}*/
+	}
 	public void sound(){
 		final MediaPlayer mp = new MediaPlayer();
 		if(mp.isPlaying())
@@ -236,7 +258,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 	}
 	
 	
-	/*public void setWallpaper(){
+	public void setWallpaper(){
 		InputStream is = getResources().openRawResource(toPhone);
 		Bitmap bm = BitmapFactory.decodeStream(is);
 		try{
@@ -248,7 +270,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 		}catch(IOException e){
 			e.printStackTrace();
 		}		 
-	}*/
+	}
 	
 	public  void setNotification(){
 		String filepath ="sdCard/media/audio/notifications";
