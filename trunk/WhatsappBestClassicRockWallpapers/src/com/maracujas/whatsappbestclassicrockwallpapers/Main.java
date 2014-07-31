@@ -45,10 +45,12 @@ public class Main extends Activity implements OnClickListener{
 		case R.id.bt_eagles:
 			i.putExtra("banda", "eagles");
 			this.startActivity(i);
+			finish();
 			break;
 		case R.id.bt_rolling_stone:
 			i.putExtra("banda", "rolling");
 			this.startActivity(i);
+			finish();
 			break;
 		case R.id.bt_acdc:
 			//i.putExtra("banda", "acdc");

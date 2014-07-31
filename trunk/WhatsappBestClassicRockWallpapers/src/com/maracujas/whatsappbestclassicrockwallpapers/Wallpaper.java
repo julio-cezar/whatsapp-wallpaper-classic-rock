@@ -1,6 +1,7 @@
 package com.maracujas.whatsappbestclassicrockwallpapers;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -51,13 +53,12 @@ public class Wallpaper extends Activity implements OnClickListener{
 
 		if (extras != null) {
 			banda = extras.getString("banda");
-		    // and get whatever type user account id is
 		}
 				
 		
 		display  = (ImageView) findViewById(R.id.IVDisplay);
-		toPhone = R.drawable.back_acdc_1;
-		uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_1");
+		toPhone = R.drawable.back_beatles_1;
+		uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_1");
 		ImageView image1 = (ImageView) findViewById(R.id.IVimage1);
 		ImageView image2 = (ImageView) findViewById(R.id.IVimage2);
 		ImageView image3 = (ImageView) findViewById(R.id.IVimage3);
@@ -68,17 +69,17 @@ public class Wallpaper extends Activity implements OnClickListener{
 		ImageButton ibsave = (ImageButton) findViewById(R.id.IBShare);
 		ImageButton ibsound = (ImageButton) findViewById(R.id.IBSound);
 		
-		//testes de set Image
+
 		//Bitmap bMap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
 		//image1.setImageBitmap(bMap);
 		
 		switch(banda){
 		case "beatles":
-		image1.setImageResource(R.drawable.back_beatles_1);
-		image2.setImageResource(R.drawable.back_beatles_2);
-		image3.setImageResource(R.drawable.back_beatles_1);
-		image4.setImageResource(R.drawable.back_beatles_4);
-		image5.setImageResource(R.drawable.back_beatles_4);
+			image1.setImageResource(R.drawable.icon_back_beatles_1);
+			image2.setImageResource(R.drawable.icon_back_beatles_2);
+			image3.setImageResource(R.drawable.icon_back_beatles_3);
+			image4.setImageResource(R.drawable.icon_back_beatles_4);
+			image5.setImageResource(R.drawable.icon_back_beatles_5);
 		break ;
 		}
 		/*switch(banda){
@@ -128,42 +129,46 @@ public class Wallpaper extends Activity implements OnClickListener{
 	}
 	
 	
-	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch(v.getId()){
 		case R.id.IVimage1:
-			display.setImageResource(R.drawable.back_beatles_1);
-			toPhone = R.drawable.back_beatles_4;
-	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_1");
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_beatles_1);
+			toPhone = R.drawable.back_beatles_1;
+	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_1");
 			break;
 		case R.id.IVimage2:
-			display.setImageResource(R.drawable.back_beatles_1);
-			toPhone = R.drawable.back_beatles_4;
-			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_2");
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_beatles_2);
+	    	toPhone = R.drawable.back_beatles_2;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_2");
 			break;
 		case R.id.IVimage3:
-			display.setImageResource(R.drawable.back_beatles_1);
-			toPhone = R.drawable.back_eagle_1;
-			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_eagle_1");
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_beatles_3);
+			toPhone = R.drawable.back_beatles_3;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_3");
 			break;
 		case R.id.IVimage4:
-			display.setImageResource(R.drawable.back_beatles_1);
-			toPhone = R.drawable.back_eagle_1;
-			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_bonjovi_1");
+				display.setImageDrawable(null);
+				display.setImageResource(R.drawable.icon_back_beatles_4);
+				toPhone = R.drawable.back_beatles_4;
+				uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_4");
 			break;
 		case R.id.IVimage5:
-			display.setImageResource(R.drawable.back_beatles_1);
-			toPhone = R.drawable.back_eagle_1;
-			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_gunsnroses_1");
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_beatles_5);
+			toPhone = R.drawable.back_beatles_5;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_5");
 			break;			
 		case R.id.BsetWallpaper:
 			sound();
-			//setWallpaper();
+			setWallpaper();
 			break;
 		case R.id.IBSave:
 			sound();
-			//saveImage();
+			saveImage();
 			break;			
 		case R.id.IBShare:
 			sound();
@@ -175,13 +180,15 @@ public class Wallpaper extends Activity implements OnClickListener{
 			break;
 		}	
 	}
+	
+	
 	public void shareImage() {
 		
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("image/jpeg");
       //shareIntent.setType( "text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, "Best Classic Rock Wallpapers!");
-     //   shareIntent.putExtra(Intent.EXTRA_TITLE, "SHARE");
+        shareIntent.putExtra(Intent.EXTRA_TITLE, "SHARE");
         shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
         startActivity(Intent.createChooser(shareIntent, "Share image using"));
 	}
@@ -199,7 +206,6 @@ public class Wallpaper extends Activity implements OnClickListener{
               }
 
         }
-
         Bitmap bm = BitmapFactory.decodeResource( getResources(), toPhone);
         String strtoPhone = ""+toPhone;
         String nameFile = strtoPhone+".jpeg";
@@ -295,6 +301,25 @@ public class Wallpaper extends Activity implements OnClickListener{
         RingtoneManager.setActualDefaultRingtoneUri(
                 Wallpaper.this, RingtoneManager.TYPE_RINGTONE,newUri);
 
+	}
+	public void onBackPressed() {
+
+		 Intent start = new Intent(Wallpaper.this, Main.class);
+		    startActivity(start);
+		    finish();
+		 }
+	
+	@Override
+	public void onDestroy()
+	{   
+	    Cleanup();
+	    super.onDestroy();
+	}
+
+	private void Cleanup()
+	{    
+	   System.gc();
+	    Runtime.getRuntime().gc();  
 	}
 	
 }
