@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import com.maracujas.whatsappbestclassicrockwallpapers.R.id;
+
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
@@ -37,6 +39,8 @@ public class Wallpaper extends Activity implements OnClickListener{
 	ImageView display;
 	int toPhone;
 	Uri uri;
+	Bundle extras;
+	String banda;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,8 +52,8 @@ public class Wallpaper extends Activity implements OnClickListener{
 		
 		
 		
-		Bundle extras = getIntent().getExtras(); 
-		String banda="nada";
+	    extras = getIntent().getExtras(); 
+	    banda="no";
 
 		if (extras != null) {
 			banda = extras.getString("banda");
@@ -65,6 +69,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 		ImageView image4 = (ImageView) findViewById(R.id.IVimage4);
 		ImageView image5 = (ImageView) findViewById(R.id.IVimage5);
 		Button setWall = (Button) findViewById(R.id.BsetWallpaper);
+		Button bPreview = (Button) findViewById(R.id.BPreview);
 		ImageButton ibshare = (ImageButton) findViewById(R.id.IBSave);
 		ImageButton ibsave = (ImageButton) findViewById(R.id.IBShare);
 		ImageButton ibsound = (ImageButton) findViewById(R.id.IBSound);
@@ -81,10 +86,28 @@ public class Wallpaper extends Activity implements OnClickListener{
 			image4.setImageResource(R.drawable.icon_back_beatles_4);
 			image5.setImageResource(R.drawable.icon_back_beatles_5);
 		break ;
+		case "acdc":
+			image1.setImageResource(R.drawable.icon_back_acdc_1);
+			image2.setImageResource(R.drawable.icon_back_acdc_2);
+			image3.setImageResource(R.drawable.icon_back_acdc_3);
+			image4.setImageResource(R.drawable.icon_back_acdc_4);
+			image5.setImageResource(R.drawable.icon_back_acdc_5);
+		break ;
+		case "rolling":
+			image1.setImageResource(R.drawable.icon_back_rolling_1);
+			image2.setImageResource(R.drawable.icon_back_rolling_2);
+			image3.setImageResource(R.drawable.icon_back_rolling_3);
+			image4.setImageResource(R.drawable.icon_back_rolling_4);
+			image5.setImageResource(R.drawable.icon_back_rolling_5);
+		break ;
+		case "no":
+	     	   Toast.makeText(getApplicationContext(), "no Image!", Toast.LENGTH_LONG).show();
+			break;
 		}
+		
 		/*switch(banda){
-		case "nada":
-	     	   Toast.makeText(getApplicationContext(), "Image nada!", Toast.LENGTH_LONG).show();
+		case "no":
+	     	   Toast.makeText(getApplicationContext(), "no Image!", Toast.LENGTH_LONG).show();
 			break;
 		case "beatles":
 			break;
@@ -122,6 +145,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 		image4.setOnClickListener(this);
 		image5.setOnClickListener(this);
 		setWall.setOnClickListener(this);
+		bPreview.setOnClickListener(this);
 		ibshare.setOnClickListener(this);
 		ibsave.setOnClickListener(this);
 		ibsound.setOnClickListener(this);
@@ -131,6 +155,8 @@ public class Wallpaper extends Activity implements OnClickListener{
 	
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
+	switch(banda){
+	case "beatles":
 		switch(v.getId()){
 		case R.id.IVimage1:
 			display.setImageDrawable(null);
@@ -161,7 +187,83 @@ public class Wallpaper extends Activity implements OnClickListener{
 			display.setImageResource(R.drawable.icon_back_beatles_5);
 			toPhone = R.drawable.back_beatles_5;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_5");
-			break;			
+			break;		
+		}
+	break;
+	
+	case "rolling":
+		
+		switch(v.getId()){
+		case R.id.IVimage1:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_rolling_1);
+			toPhone = R.drawable.back_rolling_1;
+	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_rolling_1");
+			break;
+		case R.id.IVimage2:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_rolling_2);
+	    	toPhone = R.drawable.back_rolling_2;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_rolling_2");
+			break;
+		case R.id.IVimage3:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_rolling_3);
+			toPhone = R.drawable.back_rolling_3;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_rolling_3");
+			break;
+		case R.id.IVimage4:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_rolling_4);
+			toPhone = R.drawable.back_rolling_4;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_rolling_4");
+			break;
+		case R.id.IVimage5:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_rolling_5);
+			toPhone = R.drawable.back_rolling_5;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_rolling_5");
+			break;		
+		}
+	break;
+	
+	case "acdc":
+		switch(v.getId()){
+		case R.id.IVimage1:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_acdc_1);
+			toPhone = R.drawable.back_acdc_1;
+	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_1");
+			break;
+		case R.id.IVimage2:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_acdc_2);
+	    	toPhone = R.drawable.back_acdc_2;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_2");
+			break;
+		case R.id.IVimage3:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_acdc_3);
+			toPhone = R.drawable.back_acdc_3;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_3");
+			break;
+		case R.id.IVimage4:
+				display.setImageDrawable(null);
+				display.setImageResource(R.drawable.icon_back_acdc_4);
+				toPhone = R.drawable.back_acdc_4;
+				uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_4");
+			break;
+		case R.id.IVimage5:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_acdc_5);
+			toPhone = R.drawable.back_acdc_5;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_5");
+			break;		
+		}
+	break;
+	}
+	
+  switch(v.getId()){
 		case R.id.BsetWallpaper:
 			sound();
 			setWallpaper();
@@ -178,10 +280,29 @@ public class Wallpaper extends Activity implements OnClickListener{
 			sound();
 			//setNotification();
 			break;
-		}	
+		
+		case R.id.BPreview:
+			 Intent intentPreview = new Intent(Wallpaper.this, Preview.class);
+			 intentPreview.putExtra("image", toPhone);
+			 startActivity(intentPreview);
+		//	 moveTaskToBack(true);
+			break;
+	}
 	}
 	
-	
+	public void setWallpaper(){
+		InputStream is = getResources().openRawResource(toPhone);
+		Bitmap bm = BitmapFactory.decodeStream(is);
+		try{
+			getApplicationContext().setWallpaper(bm);
+			Toast.makeText(getApplicationContext(), "Image was set as Wallpaper Succesfully!", Toast.LENGTH_LONG).show();
+			Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+			 // Vibrate for 500 milliseconds
+			 v.vibrate(500);
+		}catch(IOException e){
+			e.printStackTrace();
+		}		 
+	}
 	public void shareImage() {
 		
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
@@ -264,19 +385,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 	}
 	
 	
-	public void setWallpaper(){
-		InputStream is = getResources().openRawResource(toPhone);
-		Bitmap bm = BitmapFactory.decodeStream(is);
-		try{
-			getApplicationContext().setWallpaper(bm);
-			Toast.makeText(getApplicationContext(), "Image was set as Wallpaper Succesfully!", Toast.LENGTH_LONG).show();
-			Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
-			 // Vibrate for 500 milliseconds
-			 v.vibrate(500);
-		}catch(IOException e){
-			e.printStackTrace();
-		}		 
-	}
+
 	
 	public  void setNotification(){
 		String filepath ="sdCard/media/audio/notifications";

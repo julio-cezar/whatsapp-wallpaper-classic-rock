@@ -38,33 +38,35 @@ public class Main extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		Intent i=new Intent(this, Wallpaper.class);
 		switch(v.getId()){
-		case R.id.bt_the_beatles:	
-			i.putExtra("banda", "beatles");
+		case R.id.bt_rolling_stone:
+			i.putExtra("banda", "rolling");
 			this.startActivity(i);
+			finish();	
 			break;
 		case R.id.bt_eagles:
 			i.putExtra("banda", "eagles");
 			this.startActivity(i);
 			finish();
 			break;
-		case R.id.bt_rolling_stone:
-			i.putExtra("banda", "rolling");
+		case R.id.bt_the_beatles:	
+			i.putExtra("banda", "beatles");
 			this.startActivity(i);
 			finish();
 			break;
 		case R.id.bt_acdc:
-			//i.putExtra("banda", "acdc");
+			i.putExtra("banda", "acdc");
 			this.startActivity(i);
+			finish();
 			break;
 		case R.id.bt_the_led_zeppelin:
-			//i.putExtra("banda", "ledzeppelin");
+			i.putExtra("banda", "ledzeppelin");
 			this.startActivity(i);
 			break;
 		case R.id.bt_the_who:
 			i.putExtra("banda", "who");
 			this.startActivity(i);
-			break;
-	
+			finish();
+			break;	
 	}
 	}
 }
