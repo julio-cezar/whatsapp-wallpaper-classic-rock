@@ -1,14 +1,11 @@
 package com.maracujas.whatsappbestclassicrockwallpapers;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
-import com.maracujas.whatsappbestclassicrockwallpapers.R.id;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -17,7 +14,6 @@ import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -33,6 +29,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Wallpaper extends Activity implements OnClickListener{
@@ -73,13 +70,14 @@ public class Wallpaper extends Activity implements OnClickListener{
 		ImageButton ibshare = (ImageButton) findViewById(R.id.IBSave);
 		ImageButton ibsave = (ImageButton) findViewById(R.id.IBShare);
 		ImageButton ibsound = (ImageButton) findViewById(R.id.IBSound);
-		
+		TextView tvBanda = (TextView) findViewById(R.id.tvBanda);
 
 		//Bitmap bMap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
 		//image1.setImageBitmap(bMap);
 		
 		switch(banda){
 		case "beatles":
+			tvBanda.setText("Beatles");
 			image1.setImageResource(R.drawable.icon_back_beatles_1);
 			image2.setImageResource(R.drawable.icon_back_beatles_2);
 			image3.setImageResource(R.drawable.icon_back_beatles_3);
@@ -87,6 +85,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 			image5.setImageResource(R.drawable.icon_back_beatles_5);
 		break ;
 		case "acdc":
+			tvBanda.setText("AC/DC");
 			image1.setImageResource(R.drawable.icon_back_acdc_1);
 			image2.setImageResource(R.drawable.icon_back_acdc_2);
 			image3.setImageResource(R.drawable.icon_back_acdc_3);
@@ -94,12 +93,23 @@ public class Wallpaper extends Activity implements OnClickListener{
 			image5.setImageResource(R.drawable.icon_back_acdc_5);
 		break ;
 		case "rolling":
+			tvBanda.setText("Rolling Stones");
 			image1.setImageResource(R.drawable.icon_back_rolling_1);
 			image2.setImageResource(R.drawable.icon_back_rolling_2);
 			image3.setImageResource(R.drawable.icon_back_rolling_3);
 			image4.setImageResource(R.drawable.icon_back_rolling_4);
 			image5.setImageResource(R.drawable.icon_back_rolling_5);
 		break ;
+		case "eagles":
+			tvBanda.setText("Eagles");
+			break;
+		case "ledzeppelin":
+			tvBanda.setText("Ledzeppelin");
+			break;
+		case "who":
+			tvBanda.setText("The Who");
+			break;
+			
 		case "no":
 	     	   Toast.makeText(getApplicationContext(), "no Image!", Toast.LENGTH_LONG).show();
 			break;
@@ -124,13 +134,6 @@ public class Wallpaper extends Activity implements OnClickListener{
 			image3.setImageResource(R.drawable.back_rolling_3);
 			image4.setImageResource(R.drawable.back_rolling_4);
 			image5.setImageResource(R.drawable.back_rolling_5);
-			break;
-		case "acdc":
-			image1.setImageResource(R.drawable.back_acdc_1);
-			image2.setImageResource(R.drawable.back_acdc_2);
-			image3.setImageResource(R.drawable.back_acdc_3);
-			image4.setImageResource(R.drawable.back_acdc_4);
-			image5.setImageResource(R.drawable.back_acdc_5);
 			break;
 		case "ledzeppelin":
 			break;
