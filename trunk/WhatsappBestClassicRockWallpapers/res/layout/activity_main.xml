@@ -94,7 +94,7 @@
                 />
         </LinearLayout>
             
-       <!--<LinearLayout
+       <!-- <LinearLayout
             style="@style/style_layout"
             android:layout_marginTop="30dp">
 
@@ -112,10 +112,10 @@
                 android:layout_marginLeft="35dp"
                 android:background="@drawable/seletor_bt_the_doors"
                 /> 
-        </LinearLayout>
+        </LinearLayout>-->
         
         
-           <LinearLayout
+          <!--  <LinearLayout
             style="@style/style_layout"
             android:layout_marginTop="30dp">
 

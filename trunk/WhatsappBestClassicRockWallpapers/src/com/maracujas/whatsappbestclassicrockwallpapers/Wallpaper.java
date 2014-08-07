@@ -1,6 +1,7 @@
 package com.maracujas.whatsappbestclassicrockwallpapers;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,6 +9,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +17,7 @@ import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
+import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -58,8 +61,8 @@ public class Wallpaper extends Activity implements OnClickListener{
 				
 		
 		display  = (ImageView) findViewById(R.id.IVDisplay);
-		toPhone = R.drawable.back_beatles_1;
-		uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_1");
+		toPhone = R.drawable.ic_launcher;
+		uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/ic_launcher");
 		ImageView image1 = (ImageView) findViewById(R.id.IVimage1);
 		ImageView image2 = (ImageView) findViewById(R.id.IVimage2);
 		ImageView image3 = (ImageView) findViewById(R.id.IVimage3);
@@ -102,46 +105,34 @@ public class Wallpaper extends Activity implements OnClickListener{
 		break ;
 		case "eagles":
 			tvBanda.setText("Eagles");
+			image1.setImageResource(R.drawable.icon_back_eagle_1);
+			image2.setImageResource(R.drawable.icon_back_eagle_2);
+			image3.setImageResource(R.drawable.icon_back_eagle_3);
+			image4.setImageResource(R.drawable.icon_back_eagle_4);
+			image5.setImageResource(R.drawable.icon_back_eagle_5);
 			break;
 		case "ledzeppelin":
 			tvBanda.setText("Ledzeppelin");
+			image1.setImageResource(R.drawable.icon_back_led_zeppelin_1);
+			image2.setImageResource(R.drawable.icon_back_led_zeppelin_2);
+			image3.setImageResource(R.drawable.icon_back_led_zeppelin_3);
+			image4.setImageResource(R.drawable.icon_back_led_zeppelin_4);
+			image5.setImageResource(R.drawable.icon_back_led_zeppelin_5);
 			break;
 		case "who":
 			tvBanda.setText("The Who");
+			image1.setImageResource(R.drawable.icon_back_the_who_1);
+			image2.setImageResource(R.drawable.icon_back_the_who_2);
+			image3.setImageResource(R.drawable.icon_back_the_who_3);
+			image4.setImageResource(R.drawable.icon_back_the_who_4);
+			image5.setImageResource(R.drawable.icon_back_the_who_5);
 			break;
 			
 		case "no":
 	     	   Toast.makeText(getApplicationContext(), "no Image!", Toast.LENGTH_LONG).show();
 			break;
 		}
-		
-		/*switch(banda){
-		case "no":
-	     	   Toast.makeText(getApplicationContext(), "no Image!", Toast.LENGTH_LONG).show();
-			break;
-		case "beatles":
-			break;
-		case "eagles":
-			image1.setImageResource(R.drawable.back_eagle_1);
-			image2.setImageResource(R.drawable.back_eagle_2);
-			image3.setImageResource(R.drawable.back_eagle_3);
-			image4.setImageResource(R.drawable.back_eagle_4);
-			image5.setImageResource(R.drawable.back_eagle_5);
-			break;
-		case "rolling":
-			image1.setImageResource(R.drawable.back_rolling_1);
-			image2.setImageResource(R.drawable.back_rolling_2);
-			image3.setImageResource(R.drawable.back_rolling_3);
-			image4.setImageResource(R.drawable.back_rolling_4);
-			image5.setImageResource(R.drawable.back_rolling_5);
-			break;
-		case "ledzeppelin":
-			break;
-		case "who":
-			break;
-		}*/
-		
-		
+				
 		image1.setOnClickListener(this);
 		image2.setOnClickListener(this);
 		image3.setOnClickListener(this);
@@ -264,24 +255,130 @@ public class Wallpaper extends Activity implements OnClickListener{
 			break;		
 		}
 	break;
+	
+	case "ledzeppelin":
+		switch(v.getId()){
+		case R.id.IVimage1:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_led_zeppelin_1);
+			toPhone = R.drawable.back_led_zeppelin_1;
+	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_led_zeppelin_1");
+			break;
+		case R.id.IVimage2:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_led_zeppelin_2);
+	    	toPhone = R.drawable.back_led_zeppelin_2;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_led_zeppelin_2");
+			break;
+		case R.id.IVimage3:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_led_zeppelin_3);
+			toPhone = R.drawable.back_led_zeppelin_3;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_led_zeppelin_3");
+			break;
+		case R.id.IVimage4:
+				display.setImageDrawable(null);
+				display.setImageResource(R.drawable.icon_back_led_zeppelin_4);
+				toPhone = R.drawable.back_led_zeppelin_4;
+				uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_led_zeppelin_4");
+			break;
+		case R.id.IVimage5:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_led_zeppelin_5);
+			toPhone = R.drawable.back_led_zeppelin_5;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_led_zeppelin_5");
+			break;		
+		}
+	break;
+	
+	case "eagles":
+		switch(v.getId()){
+		case R.id.IVimage1:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_eagle_1);
+			toPhone = R.drawable.back_eagle_1;
+	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_eagle_1");
+			break;
+		case R.id.IVimage2:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_eagle_2);
+	    	toPhone = R.drawable.back_eagle_2;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_eagle_2");
+			break;
+		case R.id.IVimage3:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_eagle_3);
+			toPhone = R.drawable.back_eagle_3;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_eagle_3");
+			break;
+		case R.id.IVimage4:
+				display.setImageDrawable(null);
+				display.setImageResource(R.drawable.icon_back_eagle_4);
+				toPhone = R.drawable.back_eagle_4;
+				uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_eagle_4");
+			break;
+		case R.id.IVimage5:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_eagle_5);
+			toPhone = R.drawable.back_eagle_5;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_eagle_5");
+			break;		
+		}
+	break;
+	
+	case "who":
+		switch(v.getId()){
+		case R.id.IVimage1:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_the_who_1);
+			toPhone = R.drawable.back_the_who_1;
+	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_the_who_1");
+			break;
+		case R.id.IVimage2:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_the_who_2);
+	    	toPhone = R.drawable.back_the_who_2;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_the_who_2");
+			break;
+		case R.id.IVimage3:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_the_who_3);
+			toPhone = R.drawable.back_the_who_3;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_the_who_3");
+			break;
+		case R.id.IVimage4:
+				display.setImageDrawable(null);
+				display.setImageResource(R.drawable.icon_back_the_who_4);
+				toPhone = R.drawable.back_the_who_4;
+				uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_the_who_4");
+			break;
+		case R.id.IVimage5:
+			display.setImageDrawable(null);
+			display.setImageResource(R.drawable.icon_back_the_who_5);
+			toPhone = R.drawable.back_the_who_5;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_the_who_5");
+			break;		
+		}
+	break;
+	
 	}
 	
   switch(v.getId()){
 		case R.id.BsetWallpaper:
-			sound();
 			setWallpaper();
+			sound();
 			break;
 		case R.id.IBSave:
-			sound();
 			saveImage();
+			sound();
 			break;			
 		case R.id.IBShare:
-			sound();
 			shareImage();
+			sound();
 			break;	
 		case R.id.IBSound:
-			sound();
 			//setNotification();
+			sound();
 			break;
 		
 		case R.id.BPreview:
@@ -391,9 +488,13 @@ public class Wallpaper extends Activity implements OnClickListener{
 
 	
 	public  void setNotification(){
-		String filepath ="sdCard/media/audio/notifications";
-        File ringtoneFile = new File(filepath,"anydo_pop.mp3");
+		/*String filepath ="/sdcard/media/ringtone";
+        File ringtoneFile = new File(filepath,"Circle Game.mp3");
+        ContentResolver mCr = getContentResolver();
+        
 
+           
+           
         ContentValues values = new ContentValues();
         values.put(MediaStore.MediaColumns.DATA, ringtoneFile.getAbsolutePath());
         values.put(MediaStore.MediaColumns.TITLE, "Circle Game");
@@ -404,14 +505,69 @@ public class Wallpaper extends Activity implements OnClickListener{
         values.put(MediaStore.Audio.Media.IS_RINGTONE, true);
         values.put(MediaStore.Audio.Media.IS_NOTIFICATION, false);
         values.put(MediaStore.Audio.Media.IS_ALARM, false);
-        values.put(MediaStore.Audio.Media.IS_MUSIC, false);
+        values.put(MediaStore.Audio.Media.IS_MUSIC, true);
 
         Uri uri = MediaStore.Audio.Media.getContentUriForPath(ringtoneFile.getAbsolutePath());
         getContentResolver().delete(uri,MediaStore.MediaColumns.DATA + "=\""+ ringtoneFile .getAbsolutePath() + "\"", null);
         Uri newUri = getContentResolver().insert(uri, values);
 
-        RingtoneManager.setActualDefaultRingtoneUri(
-                Wallpaper.this, RingtoneManager.TYPE_RINGTONE,newUri);
+       
+        
+        Uri ringtoneUri = Uri.parse("sdCard/media/audio/notifications/anydo_pop.mp3");
+        RingtoneManager.setActualDefaultRingtoneUri( Wallpaper.this, RingtoneManager.TYPE_RINGTONE, newUri);
+        Ringtone rt = RingtoneManager.getRingtone( Wallpaper.this,ringtoneUri);
+        rt.play();
+ 	   Toast.makeText(getApplicationContext(), "sound set as ringtone!", Toast.LENGTH_LONG).show();*/
+		
+		
+		File newSoundFile = new File("/sdcard/media/Ringtone", "myringtone.oog");
+		Uri mUri = Uri.parse("android.resource://com.maracujas.whasappbestclassicrockwallpapers/R.raw.raw_back_in_black");
+		ContentResolver mCr = getContentResolver();
+		AssetFileDescriptor soundFile;
+		try {
+		       soundFile= mCr.openAssetFileDescriptor(mUri, "r");
+		   } catch (FileNotFoundException e) {
+		       soundFile=null;   
+		   }
+
+		   try {
+		      byte[] readData = new byte[1024];
+		      FileInputStream fis = soundFile.createInputStream();
+		      FileOutputStream fos = new FileOutputStream(newSoundFile);
+		      int i = fis.read(readData);
+
+		      while (i != -1) {
+		        fos.write(readData, 0, i);
+		        i = fis.read(readData);
+		      }
+
+		      fos.close();
+		   } catch (IOException io) {
+		   }
+		   Log.i("notification", "file created");
+		   
+		   ContentValues values = new ContentValues();
+		   values.put(MediaStore.MediaColumns.DATA, newSoundFile.getAbsolutePath());
+		   values.put(MediaStore.MediaColumns.TITLE, "1my ringtone");
+		   values.put(MediaStore.MediaColumns.MIME_TYPE, "audio/oog");
+		   values.put(MediaStore.MediaColumns.SIZE, newSoundFile.length());
+		   values.put(MediaStore.Audio.Media.ARTIST, R.string.app_name);
+		   values.put(MediaStore.Audio.Media.IS_RINGTONE, true);
+		   values.put(MediaStore.Audio.Media.IS_NOTIFICATION, true);
+		   values.put(MediaStore.Audio.Media.IS_ALARM, true);
+		   values.put(MediaStore.Audio.Media.IS_MUSIC, true);
+
+		   Uri uri = MediaStore.Audio.Media.getContentUriForPath(newSoundFile.getAbsolutePath());
+		   Uri newUri = mCr.insert(uri, values);
+
+
+		   try {
+		       RingtoneManager.setActualDefaultRingtoneUri(this, RingtoneManager.TYPE_RINGTONE, newUri);
+		 	   Toast.makeText(getApplicationContext(), "sound set as ringtone!", Toast.LENGTH_LONG).show();
+		   } catch (Throwable t) {
+		       Log.d("notification", "catch exception");
+		   }
+
 
 	}
 	public void onBackPressed() {
@@ -433,6 +589,69 @@ public class Wallpaper extends Activity implements OnClickListener{
 	   System.gc();
 	    Runtime.getRuntime().gc();  
 	}
+	
+	/*private Bitmap getBitmap(String path) {
+		ContentResolver  mContentResolver = getContentResolver();
+		Uri uri = new Uri.parse(path);
+		InputStream in = null;
+		try {
+		    final int IMAGE_MAX_SIZE = 1200000; // 1.2MP
+		    in = mContentResolver.openInputStream(uri);
+
+		    // Decode image size
+		    BitmapFactory.Options o = new BitmapFactory.Options();
+		    o.inJustDecodeBounds = true;
+		    BitmapFactory.decodeStream(in, null, o);
+		    in.close();
+
+
+
+		    int scale = 1;
+		    while ((o.outWidth * o.outHeight) * (1 / Math.pow(scale, 2)) > 
+		          IMAGE_MAX_SIZE) {
+		       scale++;
+		    }
+		    Log.d("GETBITMAP", "scale = " + scale + ", orig-width: " + o.outWidth + ",orig-height: " + o.outHeight);
+
+		    Bitmap b = null;
+		    in = mContentResolver.openInputStream(uri);
+		    if (scale > 1) {
+		        scale--;
+		        // scale to max possible inSampleSize that still yields an image
+		        // larger than target
+		        o = new BitmapFactory.Options();
+		        o.inSampleSize = scale;
+		        b = BitmapFactory.decodeStream(in, null, o);
+
+		        // resize to desired dimensions
+		        int height = b.getHeight();
+		        int width = b.getWidth();
+		        Log.d("GETBITMAP", "1th scale operation dimenions - width: " + width + ",height: " + height);
+
+		        double y = Math.sqrt(IMAGE_MAX_SIZE
+		                / (((double) width) / height));
+		        double x = (y / height) * width;
+
+		        Bitmap scaledBitmap = Bitmap.createScaledBitmap(b, (int) x, 
+		           (int) y, true);
+		        b.recycle();
+		        b = scaledBitmap;
+
+		        System.gc();
+		    } else {
+		        b = BitmapFactory.decodeStream(in);
+		    }
+		    in.close();
+
+		    Log.d("GETBITMAP", "bitmap size - width: " +b.getWidth() + ", height: " +b.getHeight());
+		    return b;
+		} catch (IOException e) {
+		    Log.e("GETBITMAP", e.getMessage(),e);
+		    return null;
+		}
+	}*/
+
+
 	
 }
 
