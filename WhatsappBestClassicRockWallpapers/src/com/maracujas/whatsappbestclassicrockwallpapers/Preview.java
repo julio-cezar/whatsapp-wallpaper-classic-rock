@@ -1,12 +1,12 @@
 package com.maracujas.whatsappbestclassicrockwallpapers;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 
 public class Preview extends Activity {
@@ -48,11 +48,36 @@ public class Preview extends Activity {
 	{   
 	    Cleanup();
 	    super.onDestroy();
+	    finish();
 	}
-
+	@Override
+	protected void onPause() {
+	    super.onPause();
+	    unbindDrawables(getWindow().getDecorView().findViewById(android.R.id.content));
+	    System.gc();
+	}
+	
 	private void Cleanup()
 	{    
-	   System.gc();
+		unbindDrawables(getWindow().getDecorView().findViewById(android.R.id.content));
+		System.gc();
 	    Runtime.getRuntime().gc();  
 	}
+	
+	private void unbindDrawables(View view)
+    {
+            if (view.getBackground() != null)
+            {
+                    view.getBackground().setCallback(null);
+            }
+            if (view instanceof ViewGroup && !(view instanceof AdapterView))
+            {
+                    for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++)
+                    {
+                            unbindDrawables(((ViewGroup) view).getChildAt(i));
+                    }
+                    ((ViewGroup) view).removeAllViews();
+            }
+    }
+	
 }
