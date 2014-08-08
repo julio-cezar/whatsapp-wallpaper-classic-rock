@@ -1,11 +1,18 @@
 package com.maracujas.whatsappbestclassicrockwallpapers;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class Main extends Activity implements OnClickListener{
 	
@@ -31,6 +38,14 @@ public class Main extends Activity implements OnClickListener{
 		btACDC.setOnClickListener(this);
 		btLedZeppelin.setOnClickListener(this);
 		btWho.setOnClickListener(this);
+		
+		/*btBeatles.setBackgroundResource(R.drawable.seletor_the_beatles);
+		btEagles.setBackgroundResource(R.drawable.seletor_bt_eagles);
+		btRolling.setBackgroundResource(R.drawable.seletor_bt_rolling_stone);
+		btACDC.setBackgroundResource(R.drawable.seletor_bt_acdc);
+		btLedZeppelin.setBackgroundResource(R.drawable.seletor_bt_led_zeppelin);
+		btWho.setBackgroundResource(R.drawable.seletor_bt_the_who);*/
+
 
 	}
 	
@@ -67,6 +82,28 @@ public class Main extends Activity implements OnClickListener{
 			this.startActivity(i);
 			finish();
 			break;	
+		}
 	}
+	private Bitmap decodeFile(File f){
+	    try {
+	        //Decode image size
+	        BitmapFactory.Options o = new BitmapFactory.Options();
+	        o.inJustDecodeBounds = true;
+	        BitmapFactory.decodeStream(new FileInputStream(f),null,o);
+
+	        //The new size we want to scale to
+	        final int REQUIRED_SIZE=70;
+
+	        //Find the correct scale value. It should be the power of 2.
+	        int scale=1;
+	        while(o.outWidth/scale/2>=REQUIRED_SIZE && o.outHeight/scale/2>=REQUIRED_SIZE)
+	            scale*=2;
+
+	        //Decode with inSampleSize
+	        BitmapFactory.Options o2 = new BitmapFactory.Options();
+	        o2.inSampleSize=scale;
+	        return BitmapFactory.decodeStream(new FileInputStream(f), null, o2);
+	    } catch (FileNotFoundException e) {}
+	    return null;
 	}
 }

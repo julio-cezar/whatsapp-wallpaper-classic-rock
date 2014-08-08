@@ -27,8 +27,10 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -49,8 +51,7 @@ public class Wallpaper extends Activity implements OnClickListener{
        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
 		setContentView(R.layout.activity_wallpaper);
-		
-		
+			
 		
 	    extras = getIntent().getExtras(); 
 	    banda="no";
@@ -58,8 +59,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 		if (extras != null) {
 			banda = extras.getString("banda");
 		}
-				
-		
+						
 		display  = (ImageView) findViewById(R.id.IVDisplay);
 		toPhone = R.drawable.ic_launcher;
 		uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/ic_launcher");
@@ -98,10 +98,10 @@ public class Wallpaper extends Activity implements OnClickListener{
 		case "rolling":
 			tvBanda.setText("Rolling Stones");
 			image1.setImageResource(R.drawable.icon_back_rolling_1);
-			image2.setImageResource(R.drawable.icon_back_rolling_2);
+			image2.setImageResource(R.drawable.icon_back_rolling_5);
 			image3.setImageResource(R.drawable.icon_back_rolling_3);
 			image4.setImageResource(R.drawable.icon_back_rolling_4);
-			image5.setImageResource(R.drawable.icon_back_rolling_5);
+			image5.setImageResource(R.drawable.icon_back_rolling_2);
 		break ;
 		case "eagles":
 			tvBanda.setText("Eagles");
@@ -142,10 +142,8 @@ public class Wallpaper extends Activity implements OnClickListener{
 		bPreview.setOnClickListener(this);
 		ibshare.setOnClickListener(this);
 		ibsave.setOnClickListener(this);
-		ibsound.setOnClickListener(this);
-		
+		ibsound.setOnClickListener(this);		
 	}
-	
 	
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
@@ -185,8 +183,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 		}
 	break;
 	
-	case "rolling":
-		
+	case "rolling":	
 		switch(v.getId()){
 		case R.id.IVimage1:
 			display.setImageDrawable(null);
@@ -376,9 +373,9 @@ public class Wallpaper extends Activity implements OnClickListener{
 			shareImage();
 			sound();
 			break;	
-		case R.id.IBSound:
-			//setNotification();
+		case R.id.IBSound:	
 			sound();
+			//setNotification();
 			break;
 		
 		case R.id.BPreview:
@@ -388,6 +385,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 		//	 moveTaskToBack(true);
 			break;
 	}
+  
 	}
 	
 	public void setWallpaper(){
@@ -582,13 +580,23 @@ public class Wallpaper extends Activity implements OnClickListener{
 	{   
 	    Cleanup();
 	    super.onDestroy();
-	}
+	   // finish();
 
+	}
+	
+	@Override
+	protected void onPause() {
+	    super.onPause();
+	    System.gc();
+	}
+	
 	private void Cleanup()
 	{    
-	   System.gc();
+		System.gc();
 	    Runtime.getRuntime().gc();  
 	}
+	
+
 	
 	/*private Bitmap getBitmap(String path) {
 		ContentResolver  mContentResolver = getContentResolver();

@@ -41,7 +41,7 @@
                 android:id="@+id/bt_the_beatles"
                 android:text="The Beatles"
                 style="@style/style_botoes"
-                android:background="@drawable/seletor_the_beatles"
+                android:background="@drawable/the_beatles_ico1"
                 
                  />
 
@@ -50,7 +50,7 @@
                 android:text="ACDC"
                 style="@style/style_botoes"
                 android:layout_marginLeft="35dp"
-                android:background="@drawable/seletor_bt_acdc"
+                android:background="@drawable/acdc_ico"
                 />
                         
         </LinearLayout>
@@ -63,14 +63,14 @@
                 android:id="@+id/bt_rolling_stone"
                 android:text="Rolling Stone"
                 style="@style/style_botoes"
-                android:background="@drawable/seletor_bt_rolling_stone"
+                android:background="@drawable/rolling_stone_ico"
                  />
             <Button
                 android:id="@+id/bt_the_led_zeppelin"
                 android:text="Led Zeppelin"
                 style="@style/style_botoes"
                 android:layout_marginLeft="35dp"
-                android:background="@drawable/seletor_bt_led_zeppelin"
+                android:background="@drawable/led_zeppelin_ico"
                  />
         </LinearLayout>
         
@@ -82,7 +82,7 @@
                 android:id="@+id/bt_eagles"
                 android:text="Eagles"
                 style="@style/style_botoes"
-                android:background="@drawable/seletor_bt_eagles"
+                android:background="@drawable/eagle_ico"
                  />
 
             <Button
@@ -90,11 +90,11 @@
                 android:text="The Who"
                 style="@style/style_botoes"
                 android:layout_marginLeft="35dp"
-                android:background="@drawable/seletor_bt_the_who"
+                android:background="@drawable/the_who_ico"
                 />
         </LinearLayout>
             
-       <!-- <LinearLayout
+       <LinearLayout
             style="@style/style_layout"
             android:layout_marginTop="30dp">
 
@@ -102,7 +102,7 @@
                 android:id="@+id/bt_kiss"
                 android:text="Kiss"
                 style="@style/style_botoes"
-                android:background="@drawable/seletor_bt_kiss"
+                android:background="@drawable/kiss"
                  />
 
               <Button
@@ -110,12 +110,11 @@
                 android:text="The Doors"
                 style="@style/style_botoes"
                 android:layout_marginLeft="35dp"
-                android:background="@drawable/seletor_bt_the_doors"
+                android:background="@drawable/the_doors"
                 /> 
-        </LinearLayout>-->
+        </LinearLayout>
         
-        
-          <!--  <LinearLayout
+            <LinearLayout
             style="@style/style_layout"
             android:layout_marginTop="30dp">
 
@@ -123,7 +122,7 @@
                 android:id="@+id/bt_aerosmith"
                 android:text="AeroSmith"
                 style="@style/style_botoes"
-                android:background="@drawable/seletor_bt_aerosmith"
+                android:background="@drawable/aerosmith"
                  />
 
             <Button
@@ -131,9 +130,9 @@
                 android:text="Van Halen"
                 style="@style/style_botoes"
                 android:layout_marginLeft="35dp"
-                android:background="@drawable/seletor_bt_van_halen"
+                android:background="@drawable/van_halen"
                 />
-        </LinearLayout>-->
+        </LinearLayout>
         
         
         </LinearLayout>
