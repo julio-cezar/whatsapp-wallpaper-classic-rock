@@ -5,32 +5,31 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 
 import android.app.Activity;
+import android.app.WallpaperManager;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
-import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Vibrator;
 import android.provider.MediaStore;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -81,51 +80,84 @@ public class Wallpaper extends Activity implements OnClickListener{
 		switch(banda){
 		case "beatles":
 			tvBanda.setText("Beatles");
-			image1.setImageResource(R.drawable.icon_back_beatles_1);
-			image2.setImageResource(R.drawable.icon_back_beatles_2);
-			image3.setImageResource(R.drawable.icon_back_beatles_3);
-			image4.setImageResource(R.drawable.icon_back_beatles_4);
-			image5.setImageResource(R.drawable.icon_back_beatles_5);
+			/*image1.setImageResource(R.drawable.icon_back_beatles_1);*/			
+			image1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_beatles_1, 75, 75));
+			image2.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_beatles_2, 75, 75));
+			image3.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_beatles_3, 75, 75));
+			image4.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_beatles_4, 75, 75));
+			image5.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_beatles_5, 75, 75));
 		break ;
 		case "acdc":
 			tvBanda.setText("AC/DC");
-			image1.setImageResource(R.drawable.icon_back_acdc_1);
-			image2.setImageResource(R.drawable.icon_back_acdc_2);
-			image3.setImageResource(R.drawable.icon_back_acdc_3);
-			image4.setImageResource(R.drawable.icon_back_acdc_4);
-			image5.setImageResource(R.drawable.icon_back_acdc_5);
+			image1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_acdc_1, 75, 75));
+			image2.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_acdc_2, 75, 75));
+			image3.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_acdc_3, 75, 75));
+			image4.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_acdc_4, 75, 75));
+			image5.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_acdc_5, 75, 75));
 		break ;
 		case "rolling":
 			tvBanda.setText("Rolling Stones");
-			image1.setImageResource(R.drawable.icon_back_rolling_1);
-			image2.setImageResource(R.drawable.icon_back_rolling_5);
-			image3.setImageResource(R.drawable.icon_back_rolling_3);
-			image4.setImageResource(R.drawable.icon_back_rolling_4);
-			image5.setImageResource(R.drawable.icon_back_rolling_2);
+			image1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_rolling_1, 75, 75));
+			image2.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_rolling_2, 75, 75));
+			image3.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_rolling_3, 75, 75));
+			image4.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_rolling_4, 75, 75));
+			image5.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_rolling_5, 75, 75));
 		break ;
 		case "eagles":
 			tvBanda.setText("Eagles");
-			image1.setImageResource(R.drawable.icon_back_eagle_1);
-			image2.setImageResource(R.drawable.icon_back_eagle_2);
-			image3.setImageResource(R.drawable.icon_back_eagle_3);
-			image4.setImageResource(R.drawable.icon_back_eagle_4);
-			image5.setImageResource(R.drawable.icon_back_eagle_5);
+			image1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_eagle_1, 75, 75));
+			image2.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_eagle_2, 75, 75));
+			image3.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_eagle_3, 75, 75));
+			image4.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_eagle_4, 75, 75));
+			image5.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_eagle_5, 75, 75));
 			break;
 		case "ledzeppelin":
 			tvBanda.setText("Ledzeppelin");
-			image1.setImageResource(R.drawable.icon_back_led_zeppelin_1);
-			image2.setImageResource(R.drawable.icon_back_led_zeppelin_2);
-			image3.setImageResource(R.drawable.icon_back_led_zeppelin_3);
-			image4.setImageResource(R.drawable.icon_back_led_zeppelin_4);
-			image5.setImageResource(R.drawable.icon_back_led_zeppelin_5);
+			image1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_1, 75, 75));
+			image2.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_2, 75, 75));
+			image3.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_3, 75, 75));
+			image4.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_4, 75, 75));
+			image5.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_5, 75, 75));
 			break;
 		case "who":
 			tvBanda.setText("The Who");
-			image1.setImageResource(R.drawable.icon_back_the_who_1);
-			image2.setImageResource(R.drawable.icon_back_the_who_2);
-			image3.setImageResource(R.drawable.icon_back_the_who_3);
-			image4.setImageResource(R.drawable.icon_back_the_who_4);
-			image5.setImageResource(R.drawable.icon_back_the_who_5);
+			image1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_the_who_1, 75, 75));
+			image2.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_the_who_2, 75, 75));
+			image3.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_the_who_3, 75, 75));
+			image4.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_the_who_4, 75, 75));
+			image5.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_the_who_5, 75, 75));
+			break;
+		case "aerosmith":
+			tvBanda.setText("Aero Smith");
+			image1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_aerosmith_1, 75, 75));
+			image2.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_aerosmith_2, 75, 75));
+			image3.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_aerosmith_3, 75, 75));
+			image4.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_aerosmith_4, 75, 75));
+			image5.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_aerosmith_5, 75, 75));
+			break;
+		case "doors":
+			tvBanda.setText("The Doors");
+			image1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_doors_1, 75, 75));
+			image2.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_doors_2, 75, 75));
+			image3.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_doors_3, 75, 75));
+			image4.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_doors_4, 75, 75));
+			image5.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_doors_5, 75, 75));
+			break;
+		case "vanhalen":
+			tvBanda.setText("Van Halen");
+			image1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_van_halen_1, 75, 75));
+			image2.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_van_halen_2, 75, 75));
+			image3.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_van_halen_3, 75, 75));
+			image4.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_van_halen_4, 75, 75));
+			image5.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_van_halen_5, 75, 75));
+			break;
+		case "kiss":
+			tvBanda.setText("Kiss");
+			image1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_kiss_1, 75, 75));
+			image2.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_kiss_2, 75, 75));
+			image3.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_kiss_3, 75, 75));
+			image4.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_kiss_4, 75, 75));
+			image5.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_kiss_5, 75, 75));
 			break;
 			
 		case "no":
@@ -152,31 +184,31 @@ public class Wallpaper extends Activity implements OnClickListener{
 		switch(v.getId()){
 		case R.id.IVimage1:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_beatles_1);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_beatles_1, 150, 150));
 			toPhone = R.drawable.back_beatles_1;
 	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_1");
 			break;
 		case R.id.IVimage2:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_beatles_2);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_beatles_2, 150, 150));
 	    	toPhone = R.drawable.back_beatles_2;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_2");
 			break;
 		case R.id.IVimage3:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_beatles_3);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_beatles_3, 150, 150));
 			toPhone = R.drawable.back_beatles_3;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_3");
 			break;
 		case R.id.IVimage4:
-				display.setImageDrawable(null);
-				display.setImageResource(R.drawable.icon_back_beatles_4);
-				toPhone = R.drawable.back_beatles_4;
-				uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_4");
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_beatles_4, 150, 150));
+			toPhone = R.drawable.back_beatles_4;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_4");
 			break;
 		case R.id.IVimage5:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_beatles_5);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_beatles_5, 150, 150));
 			toPhone = R.drawable.back_beatles_5;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_beatles_5");
 			break;		
@@ -187,31 +219,31 @@ public class Wallpaper extends Activity implements OnClickListener{
 		switch(v.getId()){
 		case R.id.IVimage1:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_rolling_1);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_rolling_1, 150, 150));
 			toPhone = R.drawable.back_rolling_1;
 	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_rolling_1");
 			break;
 		case R.id.IVimage2:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_rolling_2);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_rolling_2, 150, 150));
 	    	toPhone = R.drawable.back_rolling_2;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_rolling_2");
 			break;
 		case R.id.IVimage3:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_rolling_3);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_rolling_3, 150, 150));
 			toPhone = R.drawable.back_rolling_3;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_rolling_3");
 			break;
 		case R.id.IVimage4:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_rolling_4);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_rolling_4, 150, 150));
 			toPhone = R.drawable.back_rolling_4;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_rolling_4");
 			break;
 		case R.id.IVimage5:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_rolling_5);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_rolling_5, 150, 150));
 			toPhone = R.drawable.back_rolling_5;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_rolling_5");
 			break;		
@@ -222,31 +254,31 @@ public class Wallpaper extends Activity implements OnClickListener{
 		switch(v.getId()){
 		case R.id.IVimage1:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_acdc_1);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_acdc_1, 150, 150));
 			toPhone = R.drawable.back_acdc_1;
 	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_1");
 			break;
 		case R.id.IVimage2:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_acdc_2);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_acdc_2, 150, 150));
 	    	toPhone = R.drawable.back_acdc_2;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_2");
 			break;
 		case R.id.IVimage3:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_acdc_3);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_acdc_3, 150, 150));
 			toPhone = R.drawable.back_acdc_3;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_3");
 			break;
 		case R.id.IVimage4:
 				display.setImageDrawable(null);
-				display.setImageResource(R.drawable.icon_back_acdc_4);
+				display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_acdc_4, 150, 150));
 				toPhone = R.drawable.back_acdc_4;
 				uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_4");
 			break;
 		case R.id.IVimage5:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_acdc_5);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_acdc_5, 150, 150));
 			toPhone = R.drawable.back_acdc_5;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_acdc_5");
 			break;		
@@ -257,31 +289,31 @@ public class Wallpaper extends Activity implements OnClickListener{
 		switch(v.getId()){
 		case R.id.IVimage1:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_led_zeppelin_1);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_1, 150, 150));
 			toPhone = R.drawable.back_led_zeppelin_1;
 	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_led_zeppelin_1");
 			break;
 		case R.id.IVimage2:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_led_zeppelin_2);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_2, 150, 150));
 	    	toPhone = R.drawable.back_led_zeppelin_2;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_led_zeppelin_2");
 			break;
 		case R.id.IVimage3:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_led_zeppelin_3);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_3, 150, 150));
 			toPhone = R.drawable.back_led_zeppelin_3;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_led_zeppelin_3");
 			break;
 		case R.id.IVimage4:
 				display.setImageDrawable(null);
-				display.setImageResource(R.drawable.icon_back_led_zeppelin_4);
+				display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_4, 150, 150));
 				toPhone = R.drawable.back_led_zeppelin_4;
 				uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_led_zeppelin_4");
 			break;
 		case R.id.IVimage5:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_led_zeppelin_5);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_5, 150, 150));
 			toPhone = R.drawable.back_led_zeppelin_5;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_led_zeppelin_5");
 			break;		
@@ -292,31 +324,31 @@ public class Wallpaper extends Activity implements OnClickListener{
 		switch(v.getId()){
 		case R.id.IVimage1:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_eagle_1);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_eagle_1, 150, 150));
 			toPhone = R.drawable.back_eagle_1;
 	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_eagle_1");
 			break;
 		case R.id.IVimage2:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_eagle_2);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_eagle_2, 150, 150));
 	    	toPhone = R.drawable.back_eagle_2;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_eagle_2");
 			break;
 		case R.id.IVimage3:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_eagle_3);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_eagle_3, 150, 150));
 			toPhone = R.drawable.back_eagle_3;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_eagle_3");
 			break;
 		case R.id.IVimage4:
 				display.setImageDrawable(null);
-				display.setImageResource(R.drawable.icon_back_eagle_4);
+				display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_eagle_4, 150, 150));
 				toPhone = R.drawable.back_eagle_4;
 				uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_eagle_4");
 			break;
 		case R.id.IVimage5:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_eagle_5);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_eagle_5, 150, 150));
 			toPhone = R.drawable.back_eagle_5;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_eagle_5");
 			break;		
@@ -327,33 +359,169 @@ public class Wallpaper extends Activity implements OnClickListener{
 		switch(v.getId()){
 		case R.id.IVimage1:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_the_who_1);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_the_who_1, 150, 150));
 			toPhone = R.drawable.back_the_who_1;
 	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_the_who_1");
 			break;
 		case R.id.IVimage2:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_the_who_2);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_the_who_2, 150, 150));
 	    	toPhone = R.drawable.back_the_who_2;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_the_who_2");
 			break;
 		case R.id.IVimage3:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_the_who_3);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_the_who_3, 150, 150));
 			toPhone = R.drawable.back_the_who_3;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_the_who_3");
 			break;
 		case R.id.IVimage4:
 				display.setImageDrawable(null);
-				display.setImageResource(R.drawable.icon_back_the_who_4);
+				display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_the_who_4, 150, 150));
 				toPhone = R.drawable.back_the_who_4;
 				uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_the_who_4");
 			break;
 		case R.id.IVimage5:
 			display.setImageDrawable(null);
-			display.setImageResource(R.drawable.icon_back_the_who_5);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_the_who_5, 150, 150));
 			toPhone = R.drawable.back_the_who_5;
 			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_the_who_5");
+			break;		
+		}
+	break;
+	case "kiss":
+		switch(v.getId()){
+		case R.id.IVimage1:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_kiss_1, 150, 150));
+			toPhone = R.drawable.back_kiss_1;
+	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_kiss_1");
+			break;
+		case R.id.IVimage2:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_kiss_2, 150, 150));
+	    	toPhone = R.drawable.back_kiss_2;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_kiss_2");
+			break;
+		case R.id.IVimage3:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_kiss_3, 150, 150));
+			toPhone = R.drawable.back_kiss_3;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_kiss_3");
+			break;
+		case R.id.IVimage4:
+				display.setImageDrawable(null);
+				display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_kiss_4, 150, 150));
+				toPhone = R.drawable.back_kiss_4;
+				uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_kiss_4");
+			break;
+		case R.id.IVimage5:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_kiss_5, 150, 150));
+			toPhone = R.drawable.back_kiss_5;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_kiss_5");
+			break;		
+		}
+	break;
+	case "aerosmith":
+		switch(v.getId()){
+		case R.id.IVimage1:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_aerosmith_1, 150, 150));
+			toPhone = R.drawable.back_aerosmith_1;
+	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_aerosmith_1");
+			break;
+		case R.id.IVimage2:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_aerosmith_2, 150, 150));
+	    	toPhone = R.drawable.back_aerosmith_2;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_aerosmith_2");
+			break;
+		case R.id.IVimage3:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_aerosmith_3, 150, 150));
+			toPhone = R.drawable.back_aerosmith_3;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_aerosmith_3");
+			break;
+		case R.id.IVimage4:
+				display.setImageDrawable(null);
+				display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_aerosmith_4, 150, 150));
+				toPhone = R.drawable.back_aerosmith_4;
+				uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_aerosmith_4");
+			break;
+		case R.id.IVimage5:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_aerosmith_5, 150, 150));
+			toPhone = R.drawable.back_aerosmith_5;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_aerosmith_5");
+			break;		
+		}
+	break;
+	case "doors":
+		switch(v.getId()){
+		case R.id.IVimage1:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_doors_1, 150, 150));
+			toPhone = R.drawable.back_doors_1;
+	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_doors_1");
+			break;
+		case R.id.IVimage2:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_doors_2, 150, 150));
+	    	toPhone = R.drawable.back_doors_2;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_doors_2");
+			break;
+		case R.id.IVimage3:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_doors_3, 150, 150));
+			toPhone = R.drawable.back_doors_3;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_doors_3");
+			break;
+		case R.id.IVimage4:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_doors_4, 150, 150));
+			toPhone = R.drawable.back_doors_4;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_doors_4");
+			break;
+		case R.id.IVimage5:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_doors_5, 150, 150));
+			toPhone = R.drawable.back_doors_5;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_doors_5");
+			break;		
+		}
+	break;
+	case "vanhalen":
+		switch(v.getId()){
+		case R.id.IVimage1:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_van_halen_1, 150, 150));
+			toPhone = R.drawable.back_van_halen_1;
+	        uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_van_halen_1");
+			break;
+		case R.id.IVimage2:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_van_halen_2, 150, 150));
+	    	toPhone = R.drawable.back_van_halen_2;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_van_halen_2");
+			break;
+		case R.id.IVimage3:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_van_halen_3, 150, 150));
+			toPhone = R.drawable.back_van_halen_3;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_van_halen_3");
+			break;
+		case R.id.IVimage4:
+			 display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_van_halen_4, 150, 150));
+			toPhone = R.drawable.back_van_halen_4;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_van_halen_4");
+			break;
+		case R.id.IVimage5:
+			display.setImageDrawable(null);
+			display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_van_halen_5, 150, 150));
+			toPhone = R.drawable.back_van_halen_5;
+			uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/back_van_halen_5");
 			break;		
 		}
 	break;
@@ -389,7 +557,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 	}
 	
 	public void setWallpaper(){
-		InputStream is = getResources().openRawResource(toPhone);
+		/*InputStream is = getResources().openRawResource(toPhone);
 		Bitmap bm = BitmapFactory.decodeStream(is);
 		try{
 			getApplicationContext().setWallpaper(bm);
@@ -399,7 +567,51 @@ public class Wallpaper extends Activity implements OnClickListener{
 			 v.vibrate(500);
 		}catch(IOException e){
 			e.printStackTrace();
-		}		 
+		}*/
+		
+		 try {
+			 DisplayMetrics metrics = new DisplayMetrics(); 
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int height = metrics.heightPixels; 
+        int width = metrics.widthPixels;
+        Bitmap tempbitMap = BitmapFactory.decodeResource(getResources(), toPhone);
+        Bitmap bitmap = Bitmap.createScaledBitmap(tempbitMap,width,height, true);
+        WallpaperManager wallpaperManager = WallpaperManager.getInstance(Wallpaper.this); 
+        wallpaperManager.setWallpaperOffsetSteps(1, 1);
+        wallpaperManager.suggestDesiredDimensions(width, height);
+        wallpaperManager.setBitmap(bitmap);
+        Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+		Toast.makeText(getApplicationContext(), "Image was set as Wallpaper Succesfully!", Toast.LENGTH_LONG).show();
+		v.vibrate(500);
+          } catch (IOException e) {
+          e.printStackTrace();
+        }
+		 
+		 
+		 
+		 /* try {
+              WallpaperManager wManager = WallpaperManager.getInstance(Wallpaper.this); 
+
+              
+              Display display = getWindowManager().getDefaultDisplay();
+              Point size = new Point();
+              display.getSize(size); //essa função setWallpaper requerer api minimo 13 e a atual estava sendo 7
+              int fullWidth = size.x;
+              int fullHeight = size.y;
+              
+              Bitmap tempbitMap = BitmapFactory.decodeResource(getResources(), toPhone);
+              Bitmap bitmapResized = Bitmap.createScaledBitmap(tempbitMap, fullWidth, fullHeight, true);
+              wManager.suggestDesiredDimensions(bitmapResized.getWidth(), bitmapResized.getHeight());
+              wManager.setBitmap(bitmapResized);
+              Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+      		  Toast.makeText(getApplicationContext(), "Image was set as Wallpaper Succesfully!", Toast.LENGTH_LONG).show();
+      		  v.vibrate(500);
+
+
+          } catch (IOException e) {
+              e.printStackTrace();
+          }*/
+		 
 	}
 	public void shareImage() {
 		
@@ -659,7 +871,52 @@ public class Wallpaper extends Activity implements OnClickListener{
 		}
 	}*/
 
+	public static int calculateInSampleSize(
+		    BitmapFactory.Options options, int reqWidth, 
+		    int reqHeight) {
+		  // Altura e largura da imagem
+		  final int height = options.outHeight;
+		  final int width = options.outWidth;
+		  int inSampleSize = 1;
 
+		  if (height > reqHeight || width > reqWidth) {
+
+		    // Calcula as proporções de altura e largura 
+		    // com a altura e largura solicitada
+		    final int heightRatio = 
+		      Math.round((float) height / (float) reqHeight);
+
+		    final int widthRatio = 
+		      Math.round((float) width / (float) reqWidth);
+
+		    // Escolhe qual a melhor proporção para inSampleSize 
+		    inSampleSize = 
+		        heightRatio < widthRatio ? heightRatio : widthRatio;
+		  }
+
+		  return inSampleSize;
+		}
+	
+	public static Bitmap decodeSampledBitmapFromResource(
+			  Resources res, int resId, int reqWidth, 
+			  int reqHeight) {
+
+			  // Primeiro faz a decodificação com 
+			  // inJustDecodeBounds = true para verificar as dimensões
+			  final BitmapFactory.Options options = 
+			      new BitmapFactory.Options();
+
+			  options.inJustDecodeBounds = true;
+			  BitmapFactory.decodeResource(res, resId, options);
+
+			  // Calcula o inSampleSize
+			  options.inSampleSize = 
+			      calculateInSampleSize(options, reqWidth, reqHeight);
+
+			  // Decodifica o bitmap com o inSampleSize configurado
+			  options.inJustDecodeBounds = false;
+			  return BitmapFactory.decodeResource(res, resId, options);
+			}
 	
 }
 
