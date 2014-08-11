@@ -30,14 +30,21 @@ public class Main extends Activity implements OnClickListener{
 		Button btACDC = (Button) findViewById(R.id.bt_acdc);
 		Button btLedZeppelin = (Button) findViewById(R.id.bt_the_led_zeppelin);
 		Button btWho = (Button) findViewById(R.id.bt_the_who);
-
-
+		Button btKiss = (Button) findViewById(R.id.bt_kiss);
+		Button btAeroSmith = (Button) findViewById(R.id.bt_aerosmith);
+		Button btDoors = (Button) findViewById(R.id.bt_the_doors);
+		Button btVanHaren = (Button) findViewById(R.id.bt_van_halen);
+		
 		btBeatles.setOnClickListener(this);
 		btEagles.setOnClickListener(this);
 		btRolling.setOnClickListener(this);
 		btACDC.setOnClickListener(this);
 		btLedZeppelin.setOnClickListener(this);
 		btWho.setOnClickListener(this);
+		btKiss.setOnClickListener(this);
+		btAeroSmith.setOnClickListener(this);
+		btDoors.setOnClickListener(this);
+		btVanHaren.setOnClickListener(this);
 		
 		/*btBeatles.setBackgroundResource(R.drawable.seletor_the_beatles);
 		btEagles.setBackgroundResource(R.drawable.seletor_bt_eagles);
@@ -82,8 +89,34 @@ public class Main extends Activity implements OnClickListener{
 			this.startActivity(i);
 			finish();
 			break;	
-		}
+		
+		case R.id.bt_kiss:
+			i.putExtra("banda", "kiss");
+			this.startActivity(i);
+			finish();
+			break;	
+		
+		case R.id.bt_aerosmith:
+			i.putExtra("banda", "aerosmith");
+			this.startActivity(i);
+			finish();
+			break;	
+			
+		case R.id.bt_the_doors:
+			i.putExtra("banda", "doors");
+			this.startActivity(i);
+			finish();
+			break;	
+			
+		case R.id.bt_van_halen:
+			i.putExtra("banda", "vanhalen");
+			this.startActivity(i);
+			finish();
+			break;	
 	}
+}
+		
+
 	private Bitmap decodeFile(File f){
 	    try {
 	        //Decode image size

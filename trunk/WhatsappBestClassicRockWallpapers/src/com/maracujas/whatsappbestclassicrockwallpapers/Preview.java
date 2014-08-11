@@ -1,6 +1,9 @@
 package com.maracujas.whatsappbestclassicrockwallpapers;
 
 import android.app.Activity;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +36,14 @@ public class Preview extends Activity {
 			//String auximage = extras.getString("image");
 			imageId = extras.getInt("image");
 		}
-		image1.setImageResource(imageId);
+		image1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), imageId, 380, 600));
+
+		
+		
 	}
+	
+	
+	
 	
 	/*public void onBackPressed() {
 
@@ -80,4 +89,52 @@ public class Preview extends Activity {
             }
     }
 	
+	public static int calculateInSampleSize(
+		    BitmapFactory.Options options, int reqWidth, 
+		    int reqHeight) {
+		  // Altura e largura da imagem
+		  final int height = options.outHeight;
+		  final int width = options.outWidth;
+		  int inSampleSize = 1;
+
+		  if (height > reqHeight || width > reqWidth) {
+
+		    // Calcula as proporções de altura e largura 
+		    // com a altura e largura solicitada
+		    final int heightRatio = 
+		      Math.round((float) height / (float) reqHeight);
+
+		    final int widthRatio = 
+		      Math.round((float) width / (float) reqWidth);
+
+		    // Escolhe qual a melhor proporção para inSampleSize 
+		    inSampleSize = 
+		        heightRatio < widthRatio ? heightRatio : widthRatio;
+		  }
+
+		  return inSampleSize;
+		}
+	
+	public static Bitmap decodeSampledBitmapFromResource(
+			  Resources res, int resId, int reqWidth, 
+			  int reqHeight) {
+
+			  // Primeiro faz a decodificação com 
+			  // inJustDecodeBounds = true para verificar as dimensões
+			  final BitmapFactory.Options options = 
+			      new BitmapFactory.Options();
+
+			  options.inJustDecodeBounds = true;
+			  BitmapFactory.decodeResource(res, resId, options);
+
+			  // Calcula o inSampleSize
+			  options.inSampleSize = 
+			      calculateInSampleSize(options, reqWidth, reqHeight);
+
+			  // Decodifica o bitmap com o inSampleSize configurado
+			  options.inJustDecodeBounds = false;
+			  return BitmapFactory.decodeResource(res, resId, options);
+			}
+	
 }
+
