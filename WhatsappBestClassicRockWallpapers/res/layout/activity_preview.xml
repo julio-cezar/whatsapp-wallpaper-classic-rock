@@ -3,16 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
+    android:background="#626465"
     tools:context="${relativePackage}.${activityClass}" >
-
 
     <ImageView
         android:id="@+id/imageViewPreview"
         android:layout_width="match_parent"
-    	android:layout_height="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/IBShare" 
-        android:src="@drawable/ic_launcher"/>
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_launcher" />
 
 </RelativeLayout>
