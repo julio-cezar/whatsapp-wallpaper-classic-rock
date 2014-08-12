@@ -59,8 +59,8 @@ public class Wallpaper extends Activity implements OnClickListener{
 		}
 						
 		display  = (ImageView) findViewById(R.id.IVDisplay);
-		toPhone = R.drawable.ic_launcher;
-		uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/ic_launcher");
+		toPhone = R.drawable.ideia_icon_grande;
+		uri = Uri.parse("android.resource://com.maracujas.whatsappbestclassicrockwallpapers/drawable/ideia_icon_grande");
 		ImageView image1 = (ImageView) findViewById(R.id.IVimage1);
 		ImageView image2 = (ImageView) findViewById(R.id.IVimage2);
 		ImageView image3 = (ImageView) findViewById(R.id.IVimage3);
@@ -73,8 +73,9 @@ public class Wallpaper extends Activity implements OnClickListener{
 		ImageButton ibsound = (ImageButton) findViewById(R.id.IBSound);
 		TextView tvBanda = (TextView) findViewById(R.id.tvBanda);
 
-		//Bitmap bMap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
-		//image1.setImageBitmap(bMap);
+		display.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.ideia_icon_grande, 150, 150));
+		//Bitmap bMap = BitmapFactory.decodeResource(getResources(), R.drawable.ideia_icon_grande);
+		//display.setImageBitmap(bMap);
 		
 		switch(banda){
 		case "beatles":
