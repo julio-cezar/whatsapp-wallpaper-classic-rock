@@ -5,10 +5,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 
 import android.app.Activity;
-import android.app.WallpaperManager;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -24,7 +24,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Vibrator;
 import android.provider.MediaStore;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -557,7 +556,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 	}
 	
 	public void setWallpaper(){
-		/*InputStream is = getResources().openRawResource(toPhone);
+		InputStream is = getResources().openRawResource(toPhone);
 		Bitmap bm = BitmapFactory.decodeStream(is);
 		try{
 			getApplicationContext().setWallpaper(bm);
@@ -567,9 +566,9 @@ public class Wallpaper extends Activity implements OnClickListener{
 			 v.vibrate(500);
 		}catch(IOException e){
 			e.printStackTrace();
-		}*/
+		}
 		
-		 try {
+		/* try {
 			 DisplayMetrics metrics = new DisplayMetrics(); 
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         int height = metrics.heightPixels; 
@@ -585,7 +584,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 		v.vibrate(500);
           } catch (IOException e) {
           e.printStackTrace();
-        }
+        }*/
 		 
 		 
 		 
