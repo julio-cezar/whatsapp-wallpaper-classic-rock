@@ -116,12 +116,12 @@
         android:layout_alignBottom="@+id/IBSave"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
         android:layout_toLeftOf="@+id/IBSound"
         android:text="ACDC"
         android:textColor="#ffffff"
-        android:textSize="35sp" />
+        android:textSize="30sp" />
 
     <ImageButton
         android:id="@+id/IBSound"
