@@ -117,11 +117,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_toLeftOf="@+id/IBSound"
         android:text="ACDC"
         android:textColor="#ffffff"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
 
     <ImageButton
         android:id="@+id/IBSound"

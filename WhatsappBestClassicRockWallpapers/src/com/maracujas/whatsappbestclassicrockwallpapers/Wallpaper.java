@@ -112,7 +112,7 @@ public class Wallpaper extends Activity implements OnClickListener{
 			image5.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_eagle_5, 75, 75));
 			break;
 		case "ledzeppelin":
-			tvBanda.setText("Ledzeppelin");
+			tvBanda.setText("Led Zeppelin");
 			image1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_1, 75, 75));
 			image2.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_2, 75, 75));
 			image3.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.back_led_zeppelin_3, 75, 75));

@@ -116,7 +116,8 @@
         
             <LinearLayout
             style="@style/style_layout"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="50dp">
 
             <Button
                 android:id="@+id/bt_aerosmith"
@@ -140,15 +141,6 @@
     
     </ScrollView>
 
-     <FrameLayout
-         android:id="@+id/propaganda"
-         android:layout_width="fill_parent"
-         android:layout_height="50dp"
-         android:layout_alignParentBottom="true"
-         android:layout_alignParentLeft="true"
-         android:layout_alignParentRight="true"
-         android:background="#f5853f" >
-
-     </FrameLayout>
+     
 
 </RelativeLayout>
