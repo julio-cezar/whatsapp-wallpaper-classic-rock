@@ -35,7 +35,7 @@ public class Splash extends Activity {
 				ANIMATION_INTERVAL);
 		mFasterAnimationsContainer.start();
 		 Handler x = new Handler();
-	        x.postDelayed(new splashhandler(), 4000);
+	        x.postDelayed(new splashhandler(), 2000);
     }
 
     class splashhandler implements Runnable {

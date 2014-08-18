@@ -13,6 +13,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class Main extends Activity implements OnClickListener{
 	
 	@Override
@@ -51,7 +54,13 @@ public class Main extends Activity implements OnClickListener{
 		btACDC.setBackgroundResource(R.drawable.seletor_bt_acdc);
 		btLedZeppelin.setBackgroundResource(R.drawable.seletor_bt_led_zeppelin);
 		btWho.setBackgroundResource(R.drawable.seletor_bt_the_who);*/
-
+		
+		AdView adView = (AdView)this.findViewById(R.id.adView);
+	    AdRequest adRequest = new AdRequest.Builder()
+	    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+	    .addTestDevice("TEST_EMULATOR")
+	    .build();
+	    adView.loadAd(adRequest);
 
 	}
 	
