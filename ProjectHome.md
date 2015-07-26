@@ -1,0 +1,1 @@
+Esse app vai conter imagens de bandas de Classic Rock.
